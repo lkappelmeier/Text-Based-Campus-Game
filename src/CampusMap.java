@@ -23,7 +23,10 @@ public class CampusMap {
                     System.out.println("You are at " + places[i].getName());
                     return places[i].getName();
                 }
-        }
+                if (i==places.length) {
+                    System.out.println("nothing found");
+                }
+        } 
         return null;
     }
 }

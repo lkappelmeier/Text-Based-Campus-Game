@@ -6,7 +6,7 @@ private Boolean containsChest;
 private Boolean restricted;
 
 
-public Place(String name, int xCoordinate, int yCoordinate, Boolean containsChest, Boolean restricted){
+public Place(String name, int xCoordinate, int yCoordinate, Boolean containsChest){
     this.name = name;
     this.xCoordinate = xCoordinate;
     this.yCoordinate = yCoordinate;

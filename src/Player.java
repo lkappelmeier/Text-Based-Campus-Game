@@ -62,23 +62,23 @@ public class Player {
         this.xPlayer = xPlayer+1;
         return xPlayer;
     }
-    // public int moveNorth(){
-    //     this.xPlayer--;
-    //     System.out.println("Your new coordinates are X: " + xPlayer + " Y: " + yPlayer);
-    //     return getxPlayer();
-    // }
-    // public int moveSouth(){
-    //     this.xPlayer++;
-    //     return getxPlayer();
-    // }
-    // public int moveWest(){
-    //     this.yPlayer--;
-    //     return yPlayer;
-    // }
-    // public int moveEast(){
-    //     this.yPlayer++;
-    //     return yPlayer;
-    // }
+    public int moveNorth(){
+        this.xPlayer--;
+        System.out.println("Your new coordinates are X: " + xPlayer + " Y: " + yPlayer);
+        return getxPlayer();
+    }
+    public int moveSouth(){
+        this.xPlayer++;
+        return getxPlayer();
+    }
+    public int moveWest(){
+        this.yPlayer--;
+        return yPlayer;
+    }
+    public int moveEast(){
+        this.yPlayer++;
+        return yPlayer;
+    }
 
 
     public int setxPlayer(int x) {
