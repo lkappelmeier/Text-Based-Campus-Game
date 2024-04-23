@@ -1,6 +1,7 @@
 //import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 public class smithFinal {
 public int x;
 
@@ -83,12 +84,30 @@ public int x;
        
         //Inventory & Chest
         ArrayList<Item> inventory = new ArrayList<>();
+        ArrayList<Item> workingInventory = new ArrayList<>();
         ArrayList<Item> chest = new ArrayList<>();
             //Create Items
             Item basketball = new Item("basketball", "sports");
             Item money = new Item("money", "transactions");
+            Item shoes = new Item("shoes", "clothing");
+            Item hat = new Item("hat", "clothing");
+            Item DVD = new Item("DVD", "entertainment");
+            Item mathBook = new Item("math book", "logic");
+            Item chessBoard = new Item("chess board", "logic");
+            Item SWAGBook = new Item("Study of Women & Gender Textbook", "charisma");
+            Item sabcarpCD = new Item("Sabrina Carpenter Album", "creativity");
+            Item paintbrushes = new Item("paintbrushes", "creativity"); 
             //Add Items
             chest.add(basketball);
+            chest.add(money);
+            chest.add(shoes);
+            chest.add(hat);
+            chest.add(DVD);
+            chest.add(mathBook);
+            chest.add(chessBoard);
+            chest.add(SWAGBook);
+            chest.add(sabcarpCD);
+            chest.add(paintbrushes);
 
         while (gameActive) {
       
@@ -103,24 +122,6 @@ public int x;
                 sc.close();
                 gameActive = false;
             }
-
-        // Taking Items
-        if (userInput.contains("take")) {
-            if (userInput.contains("basketball")) {
-                if (basketball.checkForItem(chest, basketball)) {
-                    basketball.addItem(inventory, basketball);
-                    basketball.removeItem(chest, basketball);
-                } else {
-                    System.out.println("Uh there is no basketball in this chest... Awkward");
-                }
-               
-            }
-            if (userInput.contains("money")) {
-                money.addItem(inventory, money);
-                money.removeItem(chest, money);
-                mainPlayer.addMoney(10.0);
-            }
-        }
             
         //Getting Locations
         if (userInput.contains("coordinates")) {
@@ -160,9 +161,35 @@ public int x;
             }
         }
         
-        // Movement
-
-
+        // Look for Chests
+        if (userInput.contains("look for chest")) {
+            Place lookFor = campusMap.getPlaceFromCoordinates(mainPlayer.xPlayer, mainPlayer.yPlayer, places);
+            if (lookFor.getContainsChest()) {
+                System.out.println("You found a chest!");
+            } else {
+                System.out.println("There is no chest here!");
+            }
+        }
+        Random rand = new Random();
+        // Open Chest
+        if (userInput.contains("open chest")) {
+            Place lookFor = campusMap.getPlaceFromCoordinates(mainPlayer.xPlayer, mainPlayer.yPlayer, places);
+            if (lookFor.getContainsChest()) {
+                for (int index = 0; index < 2; index++) {
+                    int chestSize = chest.size();
+                    int randomIndex = rand.nextInt(chestSize);
+                    Item chosenItem = chest.get(randomIndex);
+                    inventory.add(chosenItem);
+                    chest.remove(chosenItem);
+                    System.out.println("This chest has a " + chosenItem.getItemName());
+                }
+                lookFor.setContainsChest(false);
+                System.out.println("These items have been automatically added to your inventory.");
+            } else {
+                System.out.println("You cannot open a chest because there is none here or you have already emptied it!");
+            }
+        }
+ 
     }
 
         }

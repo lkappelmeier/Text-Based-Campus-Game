@@ -29,6 +29,10 @@ public Boolean getRestricted() {
     return restricted;
 }
 
+public void setContainsChest(Boolean containsChest) {
+    this.containsChest = containsChest;
+}
+
 
 
 

@@ -43,11 +43,19 @@ public class Item {
             System.out.println("You threw the " + getItemName() + "!");
             int t = player.getFitness();
             t++;
-            player.setCharisma(t);;
-            System.out.println("You now have " + player.getCharisma() + "fitness points!");
+            player.setFitness(t);
+            System.out.println("You now have " + player.getFitness() + " fitness points!");
+        }
+        if (getUse()=="creativity") {
+            int t = player.getCreativity();
+            t++;
+            player.setCreativity(t);
+            System.out.println("You now have " + player.getCreativity() + " creativity points!");
         }
 
     }
+
+
    
 
 

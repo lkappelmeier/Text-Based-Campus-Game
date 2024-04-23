@@ -10,6 +10,7 @@ public class Player {
     public int yPlayer;
     public int startX;
     public int startY;
+    public String currentLocation;
     public Player(){
         this.charisma = 0;
         this.logic = 0;
@@ -46,6 +47,17 @@ public class Player {
     }
     public void setCharisma(int charisma) {
         this.charisma = charisma;
+    }
+
+    public void setCreativity(int creativity){
+        this.creativity = creativity;
+    }
+
+    public void setFitness(int fitness) {
+        this.fitness = fitness;
+    }
+    public void setLogic(int logic) {
+        this.logic = logic;
     }
 
     public double setMoney(double money){
