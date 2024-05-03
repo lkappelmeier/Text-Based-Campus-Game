@@ -20,7 +20,7 @@ public class CampusMap {
             int tempX = places[i].getxCoordinate();
             int tempY = places[i].getyCoordinate();
                 if (tempX == x && tempY ==y) {
-                    System.out.println("You are at " + places[i].getName());
+                    //System.out.println("You are at " + places[i].getName());
                     return places[i].getName();
                 }
                 if (i==places.length) {
@@ -36,7 +36,7 @@ public class CampusMap {
             int tempX = places[i].getxCoordinate();
             int tempY = places[i].getyCoordinate();
                 if (tempX == x && tempY ==y) {
-                    System.out.println("You are at " + places[i].getName());
+                    //System.out.println("You are at " + places[i].getName());
                     return places[i];
                 }
                 if (i==places.length) {
@@ -44,5 +44,10 @@ public class CampusMap {
                 }
         } 
         return null;
+    }
+
+    public void setStringandPlace(int x, int y, Place[] places, Player player){
+        player.setCurrentLocation(getStringPlaceFromCoordinates(x, y, places));
+        player.setCurrentLocationPlace(getPlaceFromCoordinates(x, y, places));
     }
 }

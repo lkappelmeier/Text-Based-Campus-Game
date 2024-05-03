@@ -35,11 +35,17 @@ public class Item {
         }
         return false;
     }
-
+    public String findItem(String inputString){
+            if (inputString.contains(getItemName())) {
+                String foundItem = getItemName();
+                return foundItem;
+            }
+            return null;
+    }
     
-  
+    
     public void useItem(Player player){
-        if (getUse()=="sports") {
+        if (getUse()=="fitness") {
             System.out.println("You threw the " + getItemName() + "!");
             int t = player.getFitness();
             t++;
@@ -47,14 +53,32 @@ public class Item {
             System.out.println("You now have " + player.getFitness() + " fitness points!");
         }
         if (getUse()=="creativity") {
+            System.out.println("You used or played the " + getItemName());
             int t = player.getCreativity();
             t++;
             player.setCreativity(t);
             System.out.println("You now have " + player.getCreativity() + " creativity points!");
         }
-
+        if (getUse()=="logic") {
+            System.out.println("You used or read the " + getItemName());
+            int t = player.getLogic();
+            t++;
+            player.setLogic(t);
+            System.out.println("You now have " + player.getLogic() + " logic points");
+        }
+        if (getUse()=="charisma") {
+            System.out.println("You have used or read the " + getItemName());
+            int t = player.getCharisma();
+            t++;
+            player.setCharisma(t);
+            System.out.println("You now have " + player.getCharisma() + " charisma points");
+            
+        }
     }
 
+    public void printItemName(){
+        System.out.println(getItemName());
+    }
 
    
 

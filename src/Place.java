@@ -28,11 +28,34 @@ public int getyCoordinate() {
 public Boolean getRestricted() {
     return restricted;
 }
+public void setxCoordinate(int xCoordinate) {
+    this.xCoordinate = xCoordinate;
+}
+public void setyCoordinate(int yCoordinate) {
+    this.yCoordinate = yCoordinate;
+}
+
 
 public void setContainsChest(Boolean containsChest) {
     this.containsChest = containsChest;
 }
 
+public void lookForChest(Player player, CampusMap campusMap, Place[] places){
+    Place tempLocation = player.getCurrentLocationPlace(campusMap, player.getxPlayer(), player.getyPlayer(), places);
+    if (tempLocation.getContainsChest()) {
+        System.out.println("You have found a chest!");
+    }
+}
+
+public void lookForPeople(Player player, CampusMap campusMap, Person[] persons, Place[] places){
+    Place tempLocation = player.getCurrentLocationPlace(campusMap, player.getxPlayer(), player.getyPlayer(), places);
+    for (Person person : persons) {
+         if (tempLocation==person.getPersonLocation()) {
+            System.out.println("There is someone here!");
+            break;
+         }
+    }
+}
 
 
 
